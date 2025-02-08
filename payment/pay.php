@@ -31,10 +31,10 @@ if (empty($_COOKIE['user_cart']) || intval($decoded->exp) < $currentTime || empt
 require('../constant.php');
 require('razorpay-php/Razorpay.php');
 $host = "localhost";
-$dsn = 'mysql:host=localhost;dbname=glintqnj_vegetables';
-$db_name = "glintqnj_vegetables";
-$username = "glintqnj_vegetables";
-$password = "Glintel@2024";
+$dsn = 'mysql:host=localhost;dbname=vegitabledb';
+$db_name = "vegitabledb";
+$username = "root";
+$password = "";
 $conn;
 $shippingC=0;
 $discount=0;
