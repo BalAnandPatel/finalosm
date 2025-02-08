@@ -1,0 +1,47 @@
+[09-Dec-2024 17:39:34 Asia/Kolkata] PHP Warning:  Attempt to read property "message" on null in /home2/glintqnj/onlinesabjimandi.com/delivery/action/deliveryLogin_post.php on line 20
+[09-Dec-2024 17:39:34 Asia/Kolkata] PHP Warning:  Attempt to read property "message" on null in /home2/glintqnj/onlinesabjimandi.com/delivery/action/deliveryLogin_post.php on line 21
+[09-Dec-2024 17:39:34 Asia/Kolkata] PHP Warning:  Attempt to read property "message" on null in /home2/glintqnj/onlinesabjimandi.com/delivery/action/deliveryLogin_post.php on line 29
+[09-Dec-2024 17:39:52 Asia/Kolkata] PHP Warning:  Attempt to read property "message" on null in /home2/glintqnj/onlinesabjimandi.com/delivery/action/deliveryLogin_post.php on line 20
+[09-Dec-2024 17:39:52 Asia/Kolkata] PHP Warning:  Attempt to read property "message" on null in /home2/glintqnj/onlinesabjimandi.com/delivery/action/deliveryLogin_post.php on line 21
+[09-Dec-2024 17:39:52 Asia/Kolkata] PHP Warning:  Attempt to read property "message" on null in /home2/glintqnj/onlinesabjimandi.com/delivery/action/deliveryLogin_post.php on line 29
+[10-Dec-2024 14:16:28 Asia/Kolkata] PHP Warning:  Attempt to read property "message" on null in /home2/glintqnj/onlinesabjimandi.com/delivery/action/deliveryLogin_post.php on line 20
+[10-Dec-2024 14:16:28 Asia/Kolkata] PHP Warning:  Attempt to read property "message" on null in /home2/glintqnj/onlinesabjimandi.com/delivery/action/deliveryLogin_post.php on line 21
+[10-Dec-2024 14:16:28 Asia/Kolkata] PHP Warning:  Attempt to read property "message" on null in /home2/glintqnj/onlinesabjimandi.com/delivery/action/deliveryLogin_post.php on line 29
+[29-Jan-2025 13:54:05 Asia/Kolkata] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/glintqnj/onlinesabjimandi.com/delivery/action/deliveryOrder_post.php:11) in /home2/glintqnj/onlinesabjimandi.com/delivery/action/deliveryOrder_post.php on line 27
+[29-Jan-2025 14:19:06 Asia/Kolkata] PHP Warning:  Undefined variable $check_thumb in /home2/glintqnj/onlinesabjimandi.com/delivery/action/addressupdatedDeliveryPost.php on line 122
+[29-Jan-2025 14:19:06 Asia/Kolkata] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/glintqnj/onlinesabjimandi.com/delivery/action/addressupdatedDeliveryPost.php:28) in /home2/glintqnj/onlinesabjimandi.com/delivery/action/addressupdatedDeliveryPost.php on line 165
+[29-Jan-2025 14:19:06 Asia/Kolkata] PHP Warning:  Attempt to read property "records" on null in /home2/glintqnj/onlinesabjimandi.com/delivery/action/addressupdatedDeliveryPost.php on line 201
+[29-Jan-2025 14:19:06 Asia/Kolkata] PHP Warning:  Trying to access array offset on value of type null in /home2/glintqnj/onlinesabjimandi.com/delivery/action/addressupdatedDeliveryPost.php on line 201
+[29-Jan-2025 14:19:06 Asia/Kolkata] PHP Warning:  Attempt to read property "id" on null in /home2/glintqnj/onlinesabjimandi.com/delivery/action/addressupdatedDeliveryPost.php on line 201
+[29-Jan-2025 14:19:53 Asia/Kolkata] PHP Warning:  Undefined variable $check_thumb in /home2/glintqnj/onlinesabjimandi.com/delivery/action/addressupdatedDeliveryPost.php on line 122
+[29-Jan-2025 14:19:53 Asia/Kolkata] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/glintqnj/onlinesabjimandi.com/delivery/action/addressupdatedDeliveryPost.php:28) in /home2/glintqnj/onlinesabjimandi.com/delivery/action/addressupdatedDeliveryPost.php on line 165
+[29-Jan-2025 14:19:53 Asia/Kolkata] PHP Warning:  Attempt to read property "records" on null in /home2/glintqnj/onlinesabjimandi.com/delivery/action/addressupdatedDeliveryPost.php on line 201
+[29-Jan-2025 14:19:53 Asia/Kolkata] PHP Warning:  Trying to access array offset on value of type null in /home2/glintqnj/onlinesabjimandi.com/delivery/action/addressupdatedDeliveryPost.php on line 201
+[29-Jan-2025 14:19:53 Asia/Kolkata] PHP Warning:  Attempt to read property "id" on null in /home2/glintqnj/onlinesabjimandi.com/delivery/action/addressupdatedDeliveryPost.php on line 201
+[29-Jan-2025 14:20:56 Asia/Kolkata] PHP Warning:  Undefined variable $check_thumb in /home2/glintqnj/onlinesabjimandi.com/delivery/action/addressupdatedDeliveryPost.php on line 68
+[29-Jan-2025 14:20:56 Asia/Kolkata] PHP Warning:  Attempt to read property "records" on null in /home2/glintqnj/onlinesabjimandi.com/delivery/action/addressupdatedDeliveryPost.php on line 147
+[29-Jan-2025 14:20:56 Asia/Kolkata] PHP Warning:  Trying to access array offset on value of type null in /home2/glintqnj/onlinesabjimandi.com/delivery/action/addressupdatedDeliveryPost.php on line 147
+[29-Jan-2025 14:20:56 Asia/Kolkata] PHP Warning:  Attempt to read property "id" on null in /home2/glintqnj/onlinesabjimandi.com/delivery/action/addressupdatedDeliveryPost.php on line 147
+[29-Jan-2025 14:21:40 Asia/Kolkata] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/glintqnj/onlinesabjimandi.com/delivery/action/updatedDeliveryBank_post.php:13) in /home2/glintqnj/onlinesabjimandi.com/delivery/action/updatedDeliveryBank_post.php on line 29
+[03-Feb-2025 15:44:27 Asia/Kolkata] PHP Warning:  Attempt to read property "message" on string in /home2/glintqnj/onlinesabjimandi.com/delivery/action/deliveryLogin_post.php on line 16
+[03-Feb-2025 15:49:43 Asia/Kolkata] PHP Warning:  Attempt to read property "message" on string in /home2/glintqnj/onlinesabjimandi.com/delivery/action/deliveryLogin_post.php on line 16
+[03-Feb-2025 15:49:43 Asia/Kolkata] PHP Warning:  Attempt to read property "message" on null in /home2/glintqnj/onlinesabjimandi.com/delivery/action/deliveryLogin_post.php on line 21
+[03-Feb-2025 15:49:43 Asia/Kolkata] PHP Warning:  Attempt to read property "message" on null in /home2/glintqnj/onlinesabjimandi.com/delivery/action/deliveryLogin_post.php on line 22
+[03-Feb-2025 16:25:17 Asia/Kolkata] PHP Warning:  Attempt to read property "message" on string in /home2/glintqnj/onlinesabjimandi.com/delivery/action/deliveryLogin_post.php on line 16
+[03-Feb-2025 16:25:17 Asia/Kolkata] PHP Warning:  Attempt to read property "message" on null in /home2/glintqnj/onlinesabjimandi.com/delivery/action/deliveryLogin_post.php on line 21
+[03-Feb-2025 16:25:17 Asia/Kolkata] PHP Warning:  Attempt to read property "message" on null in /home2/glintqnj/onlinesabjimandi.com/delivery/action/deliveryLogin_post.php on line 22
+[04-Feb-2025 12:00:54 Asia/Kolkata] PHP Warning:  Attempt to read property "message" on string in /home2/glintqnj/onlinesabjimandi.com/delivery/action/deliveryLogin_post.php on line 16
+[04-Feb-2025 12:00:54 Asia/Kolkata] PHP Warning:  Attempt to read property "message" on null in /home2/glintqnj/onlinesabjimandi.com/delivery/action/deliveryLogin_post.php on line 21
+[04-Feb-2025 12:00:54 Asia/Kolkata] PHP Warning:  Attempt to read property "message" on null in /home2/glintqnj/onlinesabjimandi.com/delivery/action/deliveryLogin_post.php on line 22
+[04-Feb-2025 12:16:21 Asia/Kolkata] PHP Warning:  Attempt to read property "message" on string in /home2/glintqnj/onlinesabjimandi.com/delivery/action/deliveryLogin_post.php on line 16
+[04-Feb-2025 12:16:21 Asia/Kolkata] PHP Warning:  Attempt to read property "message" on null in /home2/glintqnj/onlinesabjimandi.com/delivery/action/deliveryLogin_post.php on line 21
+[04-Feb-2025 12:16:21 Asia/Kolkata] PHP Warning:  Attempt to read property "message" on null in /home2/glintqnj/onlinesabjimandi.com/delivery/action/deliveryLogin_post.php on line 22
+[04-Feb-2025 12:20:34 Asia/Kolkata] PHP Warning:  Attempt to read property "message" on string in /home2/glintqnj/onlinesabjimandi.com/delivery/action/deliveryLogin_post.php on line 16
+[04-Feb-2025 12:20:34 Asia/Kolkata] PHP Warning:  Attempt to read property "message" on null in /home2/glintqnj/onlinesabjimandi.com/delivery/action/deliveryLogin_post.php on line 21
+[04-Feb-2025 12:20:34 Asia/Kolkata] PHP Warning:  Attempt to read property "message" on null in /home2/glintqnj/onlinesabjimandi.com/delivery/action/deliveryLogin_post.php on line 22
+[04-Feb-2025 12:23:35 Asia/Kolkata] PHP Warning:  Attempt to read property "message" on string in /home2/glintqnj/onlinesabjimandi.com/delivery/action/deliveryLogin_post.php on line 16
+[04-Feb-2025 12:23:35 Asia/Kolkata] PHP Warning:  Attempt to read property "message" on null in /home2/glintqnj/onlinesabjimandi.com/delivery/action/deliveryLogin_post.php on line 21
+[04-Feb-2025 12:23:35 Asia/Kolkata] PHP Warning:  Attempt to read property "message" on null in /home2/glintqnj/onlinesabjimandi.com/delivery/action/deliveryLogin_post.php on line 22
+[05-Feb-2025 03:27:38 Asia/Kolkata] PHP Warning:  Attempt to read property "message" on string in /home2/glintqnj/onlinesabjimandi.com/delivery/action/deliveryLogin_post.php on line 16
+[05-Feb-2025 03:27:38 Asia/Kolkata] PHP Warning:  Attempt to read property "message" on null in /home2/glintqnj/onlinesabjimandi.com/delivery/action/deliveryLogin_post.php on line 21
+[05-Feb-2025 03:27:38 Asia/Kolkata] PHP Warning:  Attempt to read property "message" on null in /home2/glintqnj/onlinesabjimandi.com/delivery/action/deliveryLogin_post.php on line 22
