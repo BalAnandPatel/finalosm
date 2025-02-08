@@ -9,11 +9,8 @@ $mobile=$_POST["mobile"];
 $createdOn=date('Y-m-d h:i:sa');
 $createdBy= "User";
 $url = $URL . "user/insert_user.php";
-//$url = $URL . "deliveryBoy/insertDelivery.php";
-//$url_read_maxId=$URL . "registration/read_maxId.php";
 
 $data = array(
-
   "name" => $name,
   "email" => $email,
   "userId" => $email,
@@ -28,10 +25,7 @@ $data = array(
 //echo $url;
 //print_r($postdata);
 $result_registration=url_encode_Decode($url,$postdata);
-
-
-  if($result_registration->message=="Successfull"){
-
+if($result_registration->message=="Successfull"){
         $headers = "From: info@onlinesabjimandi.com \r\n";
         $headers .= "MIME-Version: 1.0" . "\r\n";
         $headers .= "Content-type:text/html;charset=iso-8859-1" . "\r\n";
@@ -53,7 +47,7 @@ $result_registration=url_encode_Decode($url,$postdata);
      
    
 else{
-   header('Location:../registration.php?msg=Failed');
+   header('Location:../../newuser.php?msg=Email is Allredy Exist !');
 }
 function url_encode_Decode($url,$postdata){
     $client = curl_init($url);
