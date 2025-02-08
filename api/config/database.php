@@ -11,9 +11,9 @@ class Database{
     // public $conn;
   
     private $host = "localhost";
-    private $db_name = "glintqnj_vegetables";
-    private $username = "glintqnj_vegetables";
-    private $password = "Glintel@2024";
+    private $db_name = "vegitabledb";
+    private $username = "root";
+    private $password = "";
     public $conn;
 
 
