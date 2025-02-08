@@ -10,7 +10,7 @@ class Database{
     // private $password = "Glintel@2024#\$dkp";
     // public $conn;
   
-    private $host = "localhost";
+    private $host = "localhsost";
     private $db_name = "vegitabledb";
     private $username = "root";
     private $password = "";

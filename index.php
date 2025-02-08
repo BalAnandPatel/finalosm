@@ -1,14 +1,14 @@
 <?php
   include 'includes/header.php';
   include "constant.php";
-  error_reporting(0);
+  //error_reporting(1);
   include 'includes/curl_header_home.php';
   $decoded=isset($_SESSION['decoded'])?$_SESSION['decoded']:"";
   //echo $decoded->data->email;
   if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['sorts'])) {
   $condition = $_POST['sorts'];
   $data = array("crid" => "", "spid" => "", "pid" => "", "filter" => (isset($_GET['filter'])?$_GET['filter']:""), "pageSize" => $pageSize, "pincode" => "", "sort" => $_POST['sorts'], "extra" => "");
- // print_r($data);
+  //print_r($data);
   $postdata = json_encode($data);
   $url_all = $URL . "product/readProductById.php";
   $readCurl = new CurlHome();
@@ -48,7 +48,7 @@ $response_pincode = $readCurlpincode->createCurl($pincode_url, $postdatapincode,
 //print_r($response_pincode); 
  $resultpincode = json_decode($response_pincode);
 //echo "*************************";
-// print_r($resultpincode);
+print_r($resultpincode);
 // echo isset($_COOKIE['pincode']);
   $pincode=(isset($_COOKIE['pincode'])?($_COOKIE['pincode']):($resultpincode->records[0]->pincode!=""?$pincode=$resultpincode->records[0]->pincode:0));
 
