@@ -11,7 +11,7 @@ $result = json_decode($_COOKIE['user_cart'], true);
                     //print_r($result);
                     $subTotal = 0;
                     foreach ($result as $index => $order) {
-                      $subTotal = $order['itemTotal'] + $subTotal;
+                      $subTotal += str_replace(",","",$order['itemTotal']);
 $id=$order['sellerId'];
          }
 $pincode_url = $URL . "seller/read_seller_pincode.php";
@@ -165,8 +165,8 @@ error_reporting(0);
                     $result = json_decode($_COOKIE['user_cart'], true);
                     $subTotal = 0;
                     foreach ($result as $index => $order) {
-                      $subTotal = $order['itemTotal'] + $subTotal;
-                    
+                      //print_r($result);
+                       $subTotal += str_replace(",","",$order['itemTotal']);
                     } ?>
                     <tr class="subtotal border-top border-bottom pt-2 pb-2 text-uppercase">
                       <th>Subtotal</th>

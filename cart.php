@@ -375,7 +375,7 @@ $tax=0.0;
                   </tr>
                 
                  
-                  <?php $totalprice = str_replace(",","",$order['itemTotal']) + $totalprice; 
+                  <?php echo $totalprice = str_replace(",","",$order['itemTotal']) + $totalprice; 
                   ?>
                   <?php $tax = number_format(($order['tax']) + $tax,2); ?>
                   <?php $customIndex++;
@@ -409,7 +409,7 @@ $tax=0.0;
                     <td data-title="Total">
                       <span class="price-amount amount text-dark ps-5">
                         <bdi>
-                          &#8377;<span class="cartTotalTax"><?php echo number_format($tax,2); ?></bdi>
+                          &#8377;<span class="cartTotalTax"><?php echo"-------". ($tax); ?></bdi>
                       </span>
                     </td>
                   </tr>
