@@ -409,7 +409,7 @@ $tax=0.0;
                     <td data-title="Total">
                       <span class="price-amount amount text-dark ps-5">
                         <bdi>
-                          &#8377;<span class="cartTotalTax"><?php echo"-------". ($tax); ?></bdi>
+                          &#8377;<span class="cartTotalTax"><?php echo($tax); ?></bdi>
                       </span>
                     </td>
                   </tr>
