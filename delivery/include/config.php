@@ -12,10 +12,10 @@ define('DB_NAME', 'vegitabledb');
 // }else 
 //  //echo "Connection done!";
 
-// define('DB_SERVER','localhost');
-// define('DB_USER','glintqnj_vegetables');
-// define('DB_PASS' ,'Glintel@2024');
-// define('DB_NAME', 'glintqnj_vegetables');
+define('DB_SERVER','localhost');
+define('DB_USER','root');
+define('DB_PASS' ,'');
+define('DB_NAME', 'vegitabledb');
 
 // private $host = "localhost";
 // private $db_name = "vegitabledb";
