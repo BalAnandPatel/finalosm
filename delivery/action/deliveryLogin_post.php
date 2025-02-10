@@ -13,22 +13,22 @@ curl_setopt($client, CURLOPT_CONNECTTIMEOUT, 0);
 curl_setopt($client, CURLOPT_TIMEOUT, 4); //timeout in seconds
 curl_setopt($client,CURLOPT_RETURNTRANSFER,true);
 $response = curl_exec($client);
-$response->message;
+//print_r($response);
+//$response->message;
 curl_close($client);
 //print_r($response);
 $result = (json_decode($response));
-//  print_r($result);
+//print_r($result);
 $_SESSION["message"]=$result->message;
 if($result->message=="Successfull"){
-
  $ESSION["JWT"]="123";
  $_SESSION["id"]=$id;
  $_SESSION["pass"]=$pwd;
 //  $_SESSION["workingPincode"]=$result->workingPincode;
-//   header('Location:../change-password.php');
+   header('Location:../change-password.php');
 } else
 {
-  //header('Location:../index.php?msg='.$result->message);
+  header('Location:../index.php?msg='.$result->message);
 }
 
 // function giplCurl($api,$postdata){

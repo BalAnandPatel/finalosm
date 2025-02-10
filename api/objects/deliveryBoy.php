@@ -67,7 +67,7 @@ class DeliveryBoy
     
     public function readDeliveryBoyLogin()
     {
-     echo $query = "Select a.name,a.phoneNo,a.email,a.id,a.status,a.regidenceAddress,a.workingPincode,a.workingAddress,a.aadhar,pan,b.accountNo,b.bankName, b.accountHolderName,b.ifscCode,image,a.createdBy,b.updatedOn,a.createdOn from " . $this->deliveryboy . " as a INNER JOIN " . $this->deliverybankdetails . " as b ON b.deliveryId=a.id JOIN " . $this->deliveryincome . " as c ON c.deliveryId=a.id where a.id=:id and password=:pwd";
+     $query = "Select a.name,a.phoneNo,a.email,a.id,a.status,a.regidenceAddress,a.workingPincode,a.workingAddress,a.aadhar,pan,b.accountNo,b.bankName, b.accountHolderName,b.ifscCode,image,a.createdBy,b.updatedOn,a.createdOn from " . $this->deliveryboy . " as a INNER JOIN " . $this->deliverybankdetails . " as b ON b.deliveryId=a.id JOIN " . $this->deliveryincome . " as c ON c.deliveryId=a.id where a.id=:id and password=:pwd";
          
         $stmt = $this->conn->prepare($query);
 
