@@ -104,6 +104,7 @@ $resultOrder = json_decode($response_all);
                     <tr>
                         <th>Order</th>
                         <th>Image</th>
+                        <th>Name</th>
                         <th>Quantity</th>
                         <th>Price</th>
                         <th>Discount</th>
@@ -118,6 +119,7 @@ $resultOrder = json_decode($response_all);
                     <tr>
                         <td><?php echo htmlspecialchars( $resultOrder->records[$i]->orderId); ?></td>
                         <td> <img src="seller/productimages/<?php echo trim($resultOrder->records[$i]->productSkuId);?>/<?php echo trim($resultOrder->records[$i]->productSkuId); ?>1.png" class="img-fluid" alt="productimage" height="50" width="50"></td>
+                        <td><?php echo $resultOrder->records[$i]->pName; ?></td>
                         <td><?php echo $resultOrder->records[$i]->quantity; ?></td>
                         <td> &#8377;<?php echo number_format($resultOrder->records[$i]->price, 2); ?></td>
                         <td>&#8377;<?php echo $resultOrder->records[$i]->price*$resultOrder->records[$i]->quantity*$resultOrder->records[$i]->discount*0.01 ?></td>

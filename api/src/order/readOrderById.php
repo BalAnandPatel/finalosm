@@ -62,7 +62,7 @@ if ($read_order->userId!="") {
                     "paymentId"=>$paymentId,
                     "name"=>$name,
                     "subId"=>$subId,
-
+                    "pName"=>$pName,
                     "productSkuId" => $productSkuId,
                     "quantity" => $quantity,
 
