@@ -10,18 +10,18 @@ class Database{
     // private $password = "Glintel@2024#\$dkp";
     // public $conn;
   
-    private $host = "localhost";
-    private $db_name = "glintqnj_vegetables";
-    private $username = "glintqnj_vegetables";
-    private $password = "Glintel@2024";
-    public $conn;
-
-
     // private $host = "localhost";
-    // private $db_name = "vegitabledb";
-    // private $username = "root";
-    // private $password = "";
+    // private $db_name = "glintqnj_vegetables";
+    // private $username = "glintqnj_vegetables";
+    // private $password = "Glintel@2024";
     // public $conn;
+
+
+    private $host = "localhost";
+    private $db_name = "vegitabledb";
+    private $username = "root";
+    private $password = "";
+    public $conn;
 
     // get the database connection
     public function getConnection(){

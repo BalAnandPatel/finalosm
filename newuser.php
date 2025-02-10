@@ -53,19 +53,19 @@ if (isset($_GET['msg'])) {
           <h5 class="text-uppercase mb-4">New User Registration</h5>
           <form id="form" class="form-group flex-wrap" method="POST" action="admin/action/userRegisterpost.php">
             <div class="col-12 pb-3">
-              <label class="d-none">Name</label>
+              <label>Full Name*</label>
               <input type="text" name="name"  placeholder="Name" class="form-control" autocomplete="off" required>
             </div>
             <div class="col-12 pb-3">
-              <label class="d-none">Email</label>
+              <label>Email Id</label>
               <input type="email" name="email"  placeholder="Email" class="form-control" autocomplete="off" required>
             </div>
             <div class="col-12 pb-3">
-              <label class="d-none">Mobile</label>
+              <label>Your Mobile No.*</label>
               <input type="tel" name="mobile"  placeholder="Mobile" class="form-control" autocomplete="off" required>
             </div>
             <div class="col-12 pb-3">
-              <label class="d-none">Password</label>
+              <label>Create Password</label>
               <input type="password" name="password"  placeholder="Password" class="form-control" autocomplete="off" required>
             </div>
             <div class="col-12">
