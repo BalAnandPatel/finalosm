@@ -155,7 +155,13 @@ error_reporting(0);
           </div>
           <div class="col-lg-6">
 
-          <font color="red"> <?php echo $message= isset($_GET['messageid'])?$_GET['messageid']:"";?></font>
+          <!-- <font color="red"> <?php echo $message= isset($_GET['messageid'])?$_GET['messageid']:"";?></font> -->
+          <?php if (isset($_GET['messageid'])) { ?>
+          <div class="alert alert-danger" id="failure-alert">
+            <strong>Alert!</strong> <?php echo $_GET['messageid'] ?>
+          </div>
+        <?php } ?>
+
             <div class="your-order mt-5">
               <h4 class="display-7 text-dark pb-4">Cart Total</h4>
               <div class="total-price">
