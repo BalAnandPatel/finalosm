@@ -25,7 +25,7 @@ if($result->message=="Update successfully"){
     
   
   header('Location:../../changepassword.php?msg='.$result->message);
-  $_SESSION['alert_msg']=$result->message;
+  $_SESSION['alert_msg']="Password Updated Succefully";
  } else
  {
   //echo "Bad";
