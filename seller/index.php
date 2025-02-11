@@ -31,8 +31,8 @@
 
 					<ul class="nav pull-right">
 
-						<li><a href="http://localhost/onlinesabjimandi">
-								Back to Portal
+						<li><a href="../index.php">
+								Back to Home
 
 							</a></li>
 
@@ -47,9 +47,13 @@
 
 
 
-	<div class="wrapper">
+	<div class=" container wrapper">
 		<div class="container">
 			<div class="row">
+				<div class="span4 offset4">
+				<img src="../images/mainlogo.png" alt="logo" style="width: 100px;">
+				<h4>Onlinesabjimandi.com | Seller</h4>
+				</div>
 				<div class="module module-login span4 offset4">
 					<form class="form-vertical" method="post" action="action/sellerLogin_post.php">
 						<div class="module-head">

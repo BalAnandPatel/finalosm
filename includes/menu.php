@@ -143,7 +143,7 @@ $resultcat = json_decode($response_cat);
       </li>
       <?php } }?>
     </ul>
-    <li class="nav-item dropend">
+    <!-- <li class="nav-item dropend">
             <a class="nav-link dropdown" href="<?php echo 'shop.php' ?>" role="button"  aria-expanded="false">
           Contact Us
             </a>
@@ -155,7 +155,7 @@ $resultcat = json_decode($response_cat);
             </a>
            
           </li>
-</li>
+</li> -->
               <!-- <span class="summary">Item 2: Summary</span> -->
 
 
