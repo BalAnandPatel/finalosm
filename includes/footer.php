@@ -58,10 +58,10 @@
           <h5 class="widget-title">Ultras</h5>
           <ul class="menu-list list-unstyled">
             <li class="menu-item">
-              <a href="#" class="nav-link">About us</a>
+              <a href="about.php" class="nav-link">About us</a>
             </li>
             <li class="menu-item">
-              <a href="#" class="nav-link">Conditions </a>
+              <a href="term-condition.php" class="nav-link">Conditions </a>
             </li>
             <li class="menu-item">
               <a href="#" class="nav-link">Our Journals</a>
@@ -86,13 +86,13 @@
               <a href="#" class="nav-link">FAQ</a>
             </li>
             <li class="menu-item">
-              <a href="#" class="nav-link">Contact</a>
+              <a href="contact.php" class="nav-link">Contact</a>
             </li>
             <li class="menu-item">
-              <a href="#" class="nav-link">Privacy Policy</a>
+              <a href="privacy-policy.php" class="nav-link">Privacy Policy</a>
             </li>
             <li class="menu-item">
-              <a href="#" class="nav-link">Returns & Refunds</a>
+              <a href="return-refund.php" class="nav-link">Returns & Refunds</a>
             </li>
             <li class="menu-item">
               <a href="#" class="nav-link">Cookie Guidelines</a>
@@ -111,13 +111,13 @@
               <a href="#" class="nav-link">FAQ</a>
             </li>
             <li class="menu-item">
-              <a href="#" class="nav-link">Contact</a>
+              <a href="contact.php" class="nav-link">Contact</a>
             </li>
             <li class="menu-item">
-              <a href="#" class="nav-link">Privacy Policy</a>
+              <a href="privacy-policy.php" class="nav-link">Privacy Policy</a>
             </li>
             <li class="menu-item">
-              <a href="#" class="nav-link">Returns & Refunds</a>
+              <a href="return-refund.php" class="nav-link">Returns & Refunds</a>
             </li>
             <li class="menu-item">
               <a href="#" class="nav-link">Cookie Guidelines</a>
