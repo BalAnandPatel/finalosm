@@ -36,7 +36,7 @@ if ( isset($_GET['filter'])) {
   $readCurl = new CurlHome();
   $response_all = $readCurl->createCurl($url_all, $postdata, 0, 5, 1);
 
-  print_r($response_all);
+  // print_r($response_all);
   $resultProduct = json_decode($response_all);
   //$resultcat = json_decode($response_cat);
 }

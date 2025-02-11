@@ -49,30 +49,32 @@
     <div class="container-fluid">
       <div class="row">
         <div class="contact-info col-lg-6 pb-3">
-          <p>Tortor dignissim convallis aenean et tortor at risus viverra adipiscing.</p>
+          <p>We'd love to hear from you! Whether you have a question, feedback, or just want to connect, feel free to reach out to us through any of the methods below.</p>
           <div class="page-content d-flex flex-wrap">
             <div class="col-lg-6 col-sm-12">
               <div class="content-box text-dark pe-4 mb-5">
-                <h3 class="card-title">Office</h3>
-                <div class="contact-address pt-3">
-                  <p>730 Glenstone Ave 65802, Springfield, US</p>
-                </div>
-                <div class="contact-number">
+                <h4 class="card-title">Our Contact Info</h4>
+                <div class="contact-number pt-3">
                   <p>
-                    <a href="#">+123 987 321</a>
+                    <a class="text-decoration-none" href="tel:+917379351536">+91-7379351536</a>
                   </p>
-                  <p>
+                  <!-- <p>
                     <a href="#">+123 123 654</a>
-                  </p>
+                  </p> -->
                 </div>
                 <div class="email-address">
                   <p>
-                    <a href="#">contact@website.com</a>
+                    <a class="text-decoration-none" href="mailto:info@onlinesabjimandi.com">info@onlinesabjimandi.com</a>
                   </p>
+                </div>
+                <h4 class="card-title">Address</h4>
+                <div class="contact-address pt-3">
+                  <p>Mungra Badshahpur, Jaunpur, Uttar Pradesh</p>
+                  <p>222202</p>
                 </div>
               </div>
             </div>
-            <div class="col-lg-6 col-sm-12">
+            <!-- <div class="col-lg-6 col-sm-12">
               <div class="content-box">
                 <h3 class="card-title">Management</h3>
                 <div class="contact-address pt-3">
@@ -92,7 +94,7 @@
                   </p>
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
         <div class="inquiry-item col-lg-6">
@@ -130,7 +132,7 @@
         <iframe width="100%" height="500" id="gmap_canvas"
           src="https://maps.google.com/maps?q=mungra%20baadshapur&t=&z=15&ie=UTF8&iwloc=&output=embed"
           frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
-        <a href="https://getasearch.com/fmovies"></a>
+        <!-- <a href="https://getasearch.com/fmovies"></a> -->
         <br>
         <style>
           .mapouter {
@@ -140,7 +142,7 @@
             width: 100%;
           }
         </style>
-        <a href="https://www.embedgooglemap.net">embedgooglemap.net</a>
+        <!-- <a href="https://www.embedgooglemap.net">embedgooglemap.net</a> -->
         <style>
           .gmap_canvas {
             overflow: hidden;

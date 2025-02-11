@@ -682,7 +682,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['filter'])) {
       var modalImg = document.getElementById("img01");
       window.onload = function() {
         modal.style.display = "block";
-        modalImg.src = "images/opening.png";
+
       }
 
       // Get the <span> element that closes the modal
