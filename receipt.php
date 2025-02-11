@@ -1,11 +1,11 @@
-<?php 
+<?php
 include 'includes/header.php';
-$decoded= isset($_SESSION['decoded'])?$_SESSION['decoded']:"";
+$decoded = isset($_SESSION['decoded']) ? $_SESSION['decoded'] : "";
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<?php 
-include 'constant.php'; 
+<?php
+include 'constant.php';
 include 'includes/curl_header_home.php';
 error_reporting(0);
 unset($_SESSION['']);
@@ -23,12 +23,12 @@ unset($_SESSION['address2']);
 unset($_SESSION['city']);
 unset($_SESSION['state']);
 unset($_SESSION['postalCode']);
-unset($_SESSION['phone']);  
+unset($_SESSION['phone']);
 unset($_SESSION['landmark']);
 unset($_SESSION['page_reloaded']);
 //echo $_SESSION['user_order_id'];
 
-$data = array("paymentId" =>$_SESSION['user_order_id'],"userId"=>$decoded->data->email);
+$data = array("paymentId" => $_SESSION['user_order_id'], "userId" => $decoded->data->email);
 //print_r($data);
 $postdata = json_encode($data);
 
@@ -39,126 +39,176 @@ $response_all = $readCurl->createCurl($url_all, $postdata, 0, 5, 1);
 // print_r($response_all);
 
 
-  
+
 $resultOrder = json_decode($response_all);
 //print_r($resultOrder);
 ?>
+<style>
+    .table-responsive {
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    @media (max-width: 768px) {
+        .table-responsive table {
+            width: 100%;
+            display: block;
+        }
+
+        .table-responsive thead {
+            display: none;
+        }
+
+        .table-responsive tr {
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .table-responsive td {
+            display: block;
+            text-align: right;
+            position: relative;
+            padding-left: 50%;
+            padding-top: 10px;
+            border-top: 1px solid #ddd;
+        }
+
+        .table-responsive td::before {
+            content: attr(data-label);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+    }
+</style>
 
 <body>
 
-  <?php include 'includes/svg.php' ?>
+    <?php include 'includes/svg.php' ?>
 
-  <?php include 'includes/preloader.php' ?>
+    <?php include 'includes/preloader.php' ?>
 
-  <?php include 'includes/global-cart.php' ?>
-  <header>
-    <div class="container-fluid">
-      <?php include 'includes/search.php' ?>
-    </div>
-    <?php include 'includes/menu.php' ?>
-  </header>
-
-  <section class="py-3"
-    style="background-image: url('images/background-pattern.jpg');background-repeat: no-repeat;background-size: cover;">
-    <div class="container-fluid">
-      <div class="row">
-      <?php
-// Example order details
-
-?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Order Receipt</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
-
-<div class="container mt-5">
-    <div class="card">
-        <div class="card-header text-center">
-            <h1>Order Receipt</h1>
+    <?php include 'includes/global-cart.php' ?>
+    <header>
+        <div class="container-fluid">
+            <?php include 'includes/search.php' ?>
         </div>
-        <div class="card-body">
-            <div class="text-center mb-4">
-                <!-- Placeholder for design image -->
-             
-            </div>
-            <?php if(!empty($resultOrder)){
-                //print_r($resultOrder);
+        <?php include 'includes/menu.php' ?>
+    </header>
+
+    <section class="py-3"
+        style="background-image: url('images/background-pattern.jpg');background-repeat: no-repeat;background-size: cover;">
+        <div class="container-fluid">
+            <div class="row">
+                <?php
+                // Example order details
+
                 ?>
-            <div class="row">     <div class="mb-4">
-                <p><strong>Order ID:</strong> <?php echo $resultOrder->records[0]->orderId; ?></p>
-                <p><strong>PaymentId ID:</strong> <?php echo $resultOrder->records[0]->paymentId;  ?></p>
-                <p><strong>Date:</strong> <?php echo $resultOrder->records[0]->createdOn; ?></p>
-                <p><strong>Customer Name:<?php echo $_SESSION["name"]?></strong> </p>
-                <p><strong>Customer Email:</strong> <?php echo $decoded->data->email; ?></p>
-                <!-- <p><strong>Seller:</strong> <?php // echo $resultOrder->records[0]->sellerName."-". $resultOrder->records[0]->sellerId ?></p> -->
-                <p><strong>Status:</strong> <?php echo $resultOrder->records[0]->status; ?></p>
-                
+
+                <!DOCTYPE html>
+                <html lang="en">
+
+                <head>
+                    <meta charset="UTF-8">
+                    <title>Order Receipt</title>
+                    <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"> -->
+                </head>
+
+                <body>
+
+                    <div class="container mt-5">
+                        <div class="button my-3">
+                            <a href="index.php"><button class="btn btn-primary">Home</button></a>
+                        </div>
+                        <div class="card">
+                            <div class="card-header text-center">
+                                <h1>Order Receipt</h1>
+                            </div>
+                            <div class="card-body">
+                                <div class="text-center mb-4">
+                                    <!-- Placeholder for design image -->
+
+                                </div>
+                                <?php if (!empty($resultOrder)) {
+                                    //print_r($resultOrder);
+                                ?>
+                                    <div class="row">
+                                        <div class="mb-4">
+                                            <p><strong>Order ID:</strong> <?php echo $resultOrder->records[0]->orderId; ?></p>
+                                            <p><strong>PaymentId ID:</strong> <?php echo $resultOrder->records[0]->paymentId;  ?></p>
+                                            <p><strong>Date:</strong> <?php echo $resultOrder->records[0]->createdOn; ?></p>
+                                            <p><strong>Customer Name:<?php echo $_SESSION["name"] ?></strong> </p>
+                                            <p><strong>Customer Email:</strong> <?php echo $decoded->data->email; ?></p>
+                                            <!-- <p><strong>Seller:</strong> <?php // echo $resultOrder->records[0]->sellerName."-". $resultOrder->records[0]->sellerId 
+                                                                                ?></p> -->
+                                            <p><strong>Status:</strong> <?php echo $resultOrder->records[0]->status; ?></p>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>Order</th>
+                                                    <th>Image</th>
+                                                    <th>Quantity</th>
+                                                    <th>Price</th>
+                                                    <th>Discount</th>
+                                                    <th>SGST</th>
+                                                    <th>CGST</th>
+                                                    <th>SubTotal</th>
+                                                    <th>Total</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php for ($i = 0; $i < sizeof($resultOrder->records); $i++) { ?>
+                                                    <tr>
+                                                        <td data-label="Order"><?php echo htmlspecialchars($resultOrder->records[$i]->orderId); ?></td>
+                                                        <td data-label="Image">
+                                                            <img src="seller/productimages/<?php echo trim($resultOrder->records[$i]->productSkuId); ?>/<?php echo trim($resultOrder->records[$i]->productSkuId); ?>1.png" class="img-fluid" alt="productimage" height="50" width="50">
+                                                        </td>
+                                                        <td data-label="Quantity"><?php echo $resultOrder->records[$i]->quantity; ?></td>
+                                                        <td data-label="Price"> &#8377;<?php echo number_format($resultOrder->records[$i]->price, 2); ?></td>
+                                                        <td data-label="Discount">&#8377;<?php echo $resultOrder->records[$i]->price * $resultOrder->records[$i]->quantity * $resultOrder->records[$i]->discount * 0.01 ?></td>
+                                                        <td data-label="SGST"> &#8377;<?php echo number_format($resultOrder->records[$i]->sgst, 2); ?></td>
+                                                        <td data-label="CGST"> &#8377;<?php echo number_format($resultOrder->records[$i]->cgst, 2); ?></td>
+                                                        <td data-label="SubTotal"> &#8377;<?php echo number_format($resultOrder->records[$i]->quantity * $resultOrder->records[$i]->price - ($resultOrder->records[$i]->quantity * $resultOrder->records[$i]->price * $resultOrder->records[$i]->discount * 0.01), 2); ?></td>
+                                                        <td data-label="Total"> &#8377;<?php echo number_format($resultOrder->records[$i]->quantity * $resultOrder->records[$i]->price - ($resultOrder->records[$i]->quantity * $resultOrder->records[$i]->price * $resultOrder->records[$i]->discount * 0.01) + $resultOrder->records[$i]->sgst + $resultOrder->records[$i]->cgst, 2); ?></td>
+                                                    </tr>
+                                                <?php } ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+
+                                    <div class="text-right">
+
+                                        <p class="font-weight-bold"><strong>Sub Total:</strong> &#8377;<?php echo number_format($resultOrder->records[0]->orderTotal, 2); ?></p>
+                                        <p class="font-weight-bold"><strong>Delivery Charges:</strong> &#8377;20</p>
+                                        <p class="font-weight-bold"><strong>Sub Total:</strong> &#8377;<?php echo number_format($resultOrder->records[0]->orderTotal + 20, 2); ?></p>
+
+                                    </div>
+                                    <br>
+                                <?php } ?>
+                            </div>
+                        </div>
+                    </div>
+
+                </body>
+
+                </html>
+
+
+
             </div>
-           </div>
-        
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>Order</th>
-                        <th>Image</th>
-                        <th>Quantity</th>
-                        <th>Price</th>
-                        <th>Discount</th>
-                        <th>SGST</th>
-                        <th>CGST</th>
-                        <th>SubTotal</th>
-                        <th>Total</th>
-                    </tr>
-                </thead>
-                <tbody>
-                <?php   for ($i = 0; $i < sizeof($resultOrder->records); $i++) {?>
-                    <tr>
-                        <td><?php echo htmlspecialchars( $resultOrder->records[$i]->orderId); ?></td>
-                        <td> <img src="seller/productimages/<?php echo trim($resultOrder->records[$i]->productSkuId);?>/<?php echo trim($resultOrder->records[$i]->productSkuId); ?>1.png" class="img-fluid" alt="productimage" height="50" width="50"></td>
-                        <td><?php echo $resultOrder->records[$i]->quantity; ?></td>
-                        <td> &#8377;<?php echo number_format($resultOrder->records[$i]->price, 2); ?></td>
-                        <td>&#8377;<?php echo $resultOrder->records[$i]->price*$resultOrder->records[$i]->quantity*$resultOrder->records[$i]->discount*0.01 ?></td>
-                       
-                        <td> &#8377;<?php echo number_format($resultOrder->records[$i]->sgst, 2); ?></td>
-                        <td> &#8377;<?php echo number_format($resultOrder->records[$i]->cgst, 2); ?></td>
-                        <td> &#8377;<?php echo number_format($resultOrder->records[$i]->quantity * $resultOrder->records[$i]->price-($resultOrder->records[$i]->quantity * $resultOrder->records[$i]->price*$resultOrder->records[$i]->discount*0.01), 2); ?></td>
-                  
-                        <td> &#8377;<?php echo number_format($resultOrder->records[$i]->quantity * $resultOrder->records[$i]->price-($resultOrder->records[$i]->quantity * $resultOrder->records[$i]->price*$resultOrder->records[$i]->discount*0.01)+$resultOrder->records[$i]->sgst+$resultOrder->records[$i]->cgst, 2); ?></td>
-                    </tr>
-                    <?php } ?>
-                </tbody>
-            </table>
-            <div class="text-right">
-               
-                <p class="font-weight-bold"><strong>Sub Total:</strong> &#8377;<?php echo number_format( $resultOrder->records[0]->orderTotal, 2); ?></p>
-                <p class="font-weight-bold"><strong>Delivery Charges:</strong> &#8377;20</p>
-                <p class="font-weight-bold"><strong>Sub Total:</strong> &#8377;<?php echo number_format( $resultOrder->records[0]->orderTotal+20, 2); ?></p>
-             
-         </div>
-            <br>
-            <?php }?>
-        </div>
-    </div>
-</div>
-
-</body>
-</html>
+    </section>
 
 
 
-    </div>
-  </section>
-
-
-
-  <?php include 'includes/service.php'; ?>
-  <?php include 'includes/footer.php'; ?>
-  <?php include 'includes/copyright.php'; ?>
+    <?php include 'includes/service.php'; ?>
+    <?php include 'includes/footer.php'; ?>
+    <?php include 'includes/copyright.php'; ?>
 
 </body>
 
