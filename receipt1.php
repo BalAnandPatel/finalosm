@@ -87,7 +87,8 @@ $resultOrder = json_decode($response_all);
             <?php if(!empty($resultOrder)){
                 //print_r($resultOrder);
                 ?>
-            <div class="row">     <div class="mb-4">
+            <div class="row">
+                 <div class="mb-4">
                 <p><strong>Order ID:</strong> <?php echo $resultOrder->records[0]->orderId; ?></p>
                 <p><strong>PaymentId ID:</strong> <?php echo $resultOrder->records[0]->paymentId;  ?></p>
                 <p><strong>Date:</strong> <?php echo $resultOrder->records[0]->createdOn; ?></p>
@@ -133,7 +134,7 @@ $resultOrder = json_decode($response_all);
                     <?php } ?>
                 </tbody>
             </table>
-       
+            
             <div class="text-right">
                
                 <p class="font-weight-bold"><strong>Sub Total:</strong> &#8377;<?php echo number_format( $resultOrder->records[0]->orderTotal, 2); ?></p>
@@ -141,7 +142,7 @@ $resultOrder = json_decode($response_all);
                 <p class="font-weight-bold"><strong>Sub Total:</strong> &#8377;<?php echo number_format( $resultOrder->records[0]->orderTotal+20, 2); ?></p>
              
          </div>
-         <div class="class="text-right"">
+         <div class="class="text-left"">
             <h5>Delivery Address</h5>
             <p><?php 
             if(!empty($resultOrder)){

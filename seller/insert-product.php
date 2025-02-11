@@ -233,9 +233,9 @@ $result = json_decode($response);
 										<label class="control-label" for="basicinput">Product Availability</label>
 										<div class="controls">
 											<select name="status" id="productAvailability" class="span8 tip" required>
-												<option value="">Select</option>
 												<option value="In Stock">In Stock</option>
-												<option value="Out of Stock">Out of Stock</option>
+												<!-- <option value="In Stock">In Stock</option>
+												<option value="Out of Stock">Out of Stock</option> -->
 											</select>
 										</div>
 									</div>
