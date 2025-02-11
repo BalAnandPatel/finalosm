@@ -57,9 +57,9 @@ $resultcat = json_decode($response_cat);
       <span class="fs-6 text-muted">For Support?</span>
       <h6 class="mb-1">+980-34984089</h6>
     </div> -->
-    <a href="seller/index.php" target="_blank">
+    <!-- <a href="seller/index.php" target="_blank">
       <button class="btn btn-primary my-4" style="font-size: 70%;color:#000">Seller Login</button>
-    </a>
+    </a> -->
     <ul class="d-flex justify-content-end list-unstyled m-1">
 
       <li class="nav-item dropdown rounded-circle sm-light p-1 mx-4">

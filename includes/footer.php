@@ -130,6 +130,14 @@
       </div>
       <div class="col-lg-3 col-md-6 col-sm-6">
         <div class="footer-menu">
+        <ul class="menu-list list-unstyled">
+            <li class="menu-item">
+              <a href="seller/index.php" class="nav-link">Seller</a>
+            </li>
+            <li class="menu-item">
+              <a href="delivery/index.php" class="nav-link">Delivery</a>
+            </li>
+        </ul>
           <h5 class="widget-title">Subscribe Us</h5>
           <p>Subscribe to our newsletter to get updates about our grand offers.</p>
           <form class="d-flex mt-3 gap-0" action="index.php">
