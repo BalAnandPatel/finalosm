@@ -682,7 +682,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['filter'])) {
       var modalImg = document.getElementById("img01");
       window.onload = function() {
         modal.style.display = "block";
-        modalImg.src = "https://png.pngtree.com/png-vector/20240726/ourmid/pngtree-grand-opening-text-effect-design-vector-png-image_13069101.png";
+        modalImg.src = "images/opening.png";
       }
 
       // Get the <span> element that closes the modal
