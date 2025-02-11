@@ -91,6 +91,8 @@ $resultcat = json_decode($response_cat);
                     class="badge bg-success text-dark ms-2"></span></a></li> -->
               <li><a href="logout.php" class="dropdown-item">Logout <span
                     class="badge bg-success text-dark ms-2"></span></a></li>
+                    <li><a href="changepassword.php" class="dropdown-item">Change Password <span
+                    class="badge bg-success text-dark ms-2"></span></a></li>
             </ul>
 
             <?php

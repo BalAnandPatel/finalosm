@@ -4,13 +4,16 @@
   <?php include 'includes/header.php' ?>
 </head>
 <?php
-if (isset($_GET['msg'])) {
-  $_SESSION['alert_msg'] = $_GET['msg'];
-  header("Location:" . $_SERVER['PHP_SELF']);
-  exit();
-} else if(isset($_POST['session'])){
-  unset($_SESSION['alert_msg']);
-}
+// $decoded= isset($_SESSION['decoded'])?$_SESSION['decoded']:"";
+// $url = $URL . "user/update_user_password.php";
+// $data = array("user" =>  $decoded->data->email);
+// //print_r($data);
+// $postdata = json_encode($data);
+// $readCurl = new CurlHome();
+// $response = $readCurl->createCurl($url, $postdata, 0, 2, 1);
+// //print_r($response);
+// $resultcart = json_decode($response);
+//print_r($resultcart);
 ?>
 <body>
   <?php include 'includes/svg.php' ?>
@@ -24,8 +27,7 @@ if (isset($_GET['msg'])) {
       <div class="order-md-last">
         <h4 class="d-flex justify-content-between align-items-center mb-3">
           <span class="text-primary">Search</span>
-        </h4>
-      
+        </h4>    
       </div>
     </div>
   </div>
@@ -46,14 +48,14 @@ if (isset($_GET['msg'])) {
           </div>
         <?php } ?>
         <div class="col-lg-4 p-5 bg-white border shadow-sm">
-          <h5 class="text-uppercase mb-4">Forgot Password</h5>
-          <form id="form" action="admin/action/reset_password.php" method="POST" class="form-group flex-wrap">
+          <h5 class="text-uppercase mb-4">Create New Password</h5>
+          <form id="form" action="admin/action/change_password_post.php" method="POST" class="form-group flex-wrap">
             <div class="col-12 pb-3">
-              <label class="d-none">Username or email address *</label>
-              <input type="text" name="email" placeholder="please enter your registerd email" autocomplete="off" class="form-control">
+              <label class="d-none">Create your new password</label>
+              <input type="text" name="password" placeholder="Type your new password" autocomplete="off" class="form-control">
             </div>
             <div class="col-12">
-              <button type="submit" name="submit" class="btn btn-primary text-uppercase w-100">Reset Password</button>
+              <button type="submit" name="submit" class="btn btn-primary text-uppercase w-100">Change Password</button>
             </div>
           </form>
         </div>
