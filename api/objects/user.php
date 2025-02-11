@@ -244,6 +244,38 @@ public function readUser()
     }
 
 
+    function updateUserPassword()
+    {
+
+        // query to update record
+        $query = "UPDATE 
+         " . $this->users . "
+     SET
+        password=:password
+        where email=:email";
+
+ 
+        // prepare query
+        $stmt = $this->conn->prepare($query);
+ 
+        $this->email = htmlspecialchars(strip_tags($this->email));
+        $this->password = htmlspecialchars(strip_tags($this->password));
+       // $this->password = htmlspecialchars(strip_tags($this->password));
+
+        //bind values with stmt
+        $stmt->bindParam(":email", $this->email);
+        $stmt->bindParam(":password", $this->password);
+        
+        
+        // execute query
+        if ($stmt->execute()){
+            return true;
+        }
+
+        return false;
+    }
+
+
     function updateUserPincode()
     {
 
