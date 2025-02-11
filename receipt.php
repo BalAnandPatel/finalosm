@@ -61,6 +61,7 @@ $resultOrder = json_decode($response_all);
 
         .table-responsive tr {
             display: block;
+            width: 65vw;
             margin-bottom: 15px;
         }
 
