@@ -591,7 +591,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['filter'])) {
 
               <?php }
               } else {
-                echo "<center><h2>No Records</h2></center>";
+                echo "<center><h2>There is no seller available for this pincode !.</h2></center>";
               } ?>
             </div>
 

@@ -1,20 +1,8 @@
+<?php include 'includes/header.php' ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <?php include 'includes/header.php' ?>
 </head>
-<?php
-// $decoded= isset($_SESSION['decoded'])?$_SESSION['decoded']:"";
-// $url = $URL . "user/update_user_password.php";
-// $data = array("user" =>  $decoded->data->email);
-// //print_r($data);
-// $postdata = json_encode($data);
-// $readCurl = new CurlHome();
-// $response = $readCurl->createCurl($url, $postdata, 0, 2, 1);
-// //print_r($response);
-// $resultcart = json_decode($response);
-//print_r($resultcart);
-?>
 <body>
   <?php include 'includes/svg.php' ?>
 <?php include 'includes/preloader.php' ?>

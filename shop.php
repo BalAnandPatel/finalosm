@@ -3,8 +3,6 @@ include "constant.php";
 error_reporting(0);
 include_once 'includes/curl_header_home.php';
 $decoded= isset($_SESSION['decoded'])?$_SESSION['decoded']:"";
-
-// Read all Product
 include_once 'includes/curl_header_home.php';
 $data = array("crid" => $url_param_type, "spid" => $url_sub_param_type, "pid" => "", "filter" => $filter, "pageSize" => $pageSize, "sort" => "", "pincode" => "$pincode", "extra" => "");
 $postdata = json_encode($data);
@@ -19,10 +17,7 @@ $response_cat = $readCurl->createCurl($url_cat, null, 0, 5, 1);
 //print_r($response_cat);
 $resultcat = json_decode($response_cat);
 $resultProduct = json_decode($response_all);
-
-
 if ( isset($_GET['filter'])) {
-
   $data = array("crid" => "",
    "spid" => "",
     "pid" => "",
@@ -449,7 +444,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['filter'])) {
 
               <?php }}
               else{
-                echo "<center><h2>No Records</h2></center>";
+                echo "<center><h2>There is no seller available for this pincode !.</h2></center>";
               } ?>
           </div>
 

@@ -1,14 +1,13 @@
+<?php
+  include 'includes/header.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <?php include 'includes/header.php' ?>
 </head>
 <?php
 if (isset($_GET['msg'])) {
   $_SESSION['alert_msg'] = $_GET['msg'];
-  header("Location:" . $_SERVER['PHP_SELF']);
-  exit();
-} else if(isset($_POST['session'])){
+  } else if(isset($_POST['session'])){
   unset($_SESSION['alert_msg']);
 }
 ?>
