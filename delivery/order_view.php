@@ -1,27 +1,29 @@
 <?php
 include('include/header.php');
 include "../constant.php";
-$urlreadOrderDetails = $URL . "orderdetails/readOrderDetails.php";
-$data = array("sellerId"=>$_SESSION['id']);
-// print_r($data);
+$orderId=$_POST['orderId'];
+$url = $URL."orderItem/readOrder.php";
+//$url="http://localhost/onlinesabjimandiapi/api/src/category/readCategory.php";
+$data = array("orderId"=>$orderId);
+//print_r($data);
 $postdata = json_encode($data);
 $client = curl_init();
-curl_setopt( $client, CURLOPT_URL,$urlreadOrderDetails);
+curl_setopt( $client, CURLOPT_URL,$url);
 //curl_setopt( $client, CURLOPT_HTTPHEADER,  $request_headers);
 curl_setopt($client, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($client, CURLOPT_POST, 5);
 curl_setopt($client, CURLOPT_POSTFIELDS, $postdata);
-$readOrderDetailsResponse = curl_exec($client);
-//print_r($readOrderDetailsResponse);
-$resultOrderDetails = json_decode($readOrderDetailsResponse);
-//print_r($resultOrderDetails);
+$responsereadorderItem = curl_exec($client);
+//	print_r($responsereadorderItem);
+$resultOrderitem = json_decode($responsereadorderItem);
+//print_r($resultOrderitem);
 ?>
 	<!DOCTYPE html>
-	<html lang="en">
+	<html lang="en">	
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Seller| Pending Orders</title>
+		<title>Seller| SubCategory</title>
 		<link type="text/css" href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 		<link type="text/css" href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
 		<link type="text/css" href="css/theme.css" rel="stylesheet">
@@ -104,106 +106,43 @@ $resultOrderDetails = json_decode($readOrderDetailsResponse);
 								<div class="module-head">
 									<h3>Pending Orders</h3>
 								</div>
+								<div class="module-head">
+								<h3><a href="pending_order.php">View Next Order Details</a></h3>
+								</div>
 								<div class="module-body table">
 									<table cellpadding="0" cellspacing="0" border="0" class="datatable-1 table table-bordered table-striped	 display" width="100%">
 										<thead>
 											<tr>
 												<th>#</th>
 												<th>Order Id</th>
-												<th>Delivery Id</th>
-												<!-- <th>Payment Id</th> -->
-												<th>Total</th>
-												<!-- <th>SGST</th>
-												<th>CGST</th> -->
-												<th>OTP</th>
-												<th>STATUS</th>
-												<!-- <th>Toal Commision</th> -->
-												<th>Created On</th>
-												<!-- <th>Created By</th> -->
-												<th>Action</th>
-											</tr>
+												
+												<th>Produc Name</th>
+												<th>productSkuId</th>
+												<th>User Id</th>
+												<th>Quantity</th>
+												<th>Toal Amount</th>
+												<th>Date</th>
+												</tr>
 										</thead>
 										<tbody>
 
 										<?php
                 // print_r($result);
-				$cnt=1;
+				$cnt=0;
                 // print_r($result['records']);
-                for($i=0; $i<sizeof($resultOrderDetails->records);$i++)
+                for($i=0; $i<sizeof($resultOrderitem->records);$i++)
                 { //print_r($result->records[$i]);
                 ?>	
 												<tr>
 												<td><?php echo htmlentities($cnt); ?></td>
-												<td>
-												<form  action="order_view.php" method="post">	
-												<input type="hidden" name="orderId" value="<?php echo $resultOrderDetails->records[$i]->orderId;?>">
-												<button type="submit" class="btn btn-success"><?php echo $resultOrderDetails->records[$i]->orderId;?></button>
-				                                  </form>
-											</td>
-												<td><?php echo $resultOrderDetails->records[$i]->deliveryId;?></td>
-												<!-- <td>
-													<?php
-													 //echo $resultOrderDetails->records[$i]->paymentId;
-													 ?>
-												</td> -->
-												<td>
-													<?php echo $resultOrderDetails->records[$i]->total;?>
-												</td>
-												<!-- <td>
-													<?php
-													 //echo $resultOrderDetails->records[$i]->sgst;
-													 ?>
-													 </td> -->
-												<!-- <td>
-													<?php 
-													//echo $resultOrderDetails->records[$i]->cgst;
-													?>
-													</td> -->
-												<td><?php echo $resultOrderDetails->records[$i]->verificationCode;?></td>
-												<td><?php echo $resultOrderDetails->records[$i]->status;?></td>
-												<!-- <td>
-													<?php 
-													//echo $resultOrderDetails->records[$i]->totalCommision;
-													?>
-													</td> -->
-												<td><?php echo $resultOrderDetails->records[$i]->createdOn;?></td>
-												<!-- <td>
-													<?php
-													// echo $resultOrderDetails->records[$i]->createdBy;
-													?>
-												</td> -->
-												<td>
-												<?php
-
-												if($resultOrderDetails->records[$i]->status!="Order_Delivery_Successfully")
-													{
-														?>
-												<form class="form-horizontal row-fluid"  action="action/orderAction_post.php" name="Category" method="post" enctype="multipart/form-data">
-															<input type="hidden" name="orderId" value="<?php echo $resultOrderDetails->records[$i]->orderId ?>">
-															<input type="hidden" name="status" value="Order_Accepted">
-															<button type="submit" class="btn btn-success">Accept</button>
-															
-														</form>
-														<form class="form-horizontal row-fluid"  action="action/orderAction_post.php" name="update" method="post" enctype="multipart/form-data">
-															<input type="hidden" name="orderId" value="<?php echo $resultOrderDetails->records[$i]->orderId ?>">
-															<input type="hidden" name="status" value="Rejected">
-															<button type="submit" class="btn btn-danger">Reject</button>
-														</form>
-														<form class="form-horizontal row-fluid"  action="action/orderAction_post.php" name="update" method="post" enctype="multipart/form-data">
-															<input type="hidden" name="orderId" value="<?php echo $resultOrderDetails->records[$i]->orderId ?>">
-															<input type="hidden" name="status" value="Order_Handover_To_Delivery_Boy">
-															<button type="submit" class="btn btn-warning">Verify Order</button>
-														</form>
-
-														<?php
-												}
-												else
-												{
-                                                   echo "Order_Delivery_Successfully";
-												}
-												?>
-												</td>
-								
+												<td><?php echo $orderId;?></td>
+												
+												<td><?php echo $resultOrderitem->records[$i]->name;?></td>
+												<td><?php echo $resultOrderitem->records[$i]->productSkuId;?></td>
+												<td><?php echo $resultOrderitem->records[$i]->userId;?></td>
+												<td><?php echo $resultOrderitem->records[$i]->quantity;?></td>
+												<td><?php echo $resultOrderitem->records[$i]->total;?></td>
+												<td><?php echo $resultOrderitem->records[$i]->createdOn;?></td>	
 												</tr>
 											<?php $cnt = $cnt + 1;
 											} ?>

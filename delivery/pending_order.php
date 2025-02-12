@@ -100,12 +100,12 @@ $resultOrderDetail = json_decode($readOrderDetailsResponse);
 											<tr>
 												<th>#</th>
 												<th>Order Id</th>
-												<th>Total</th>
+												<!-- <th>Total</th> -->
 												<th>STATUS</th>
 												<th>Address</th>
 												<th>OTP</th>
 												<th>Created On</th>
-												<th>Created By</th>
+												<!-- <th>Created By</th> -->
 												<th>Action</th>
 											</tr>
 										</thead>
@@ -121,13 +121,25 @@ $resultOrderDetail = json_decode($readOrderDetailsResponse);
                 ?>	
 												<tr class="table-primary">
 												<td><?php echo htmlentities($cnt); ?></td>
-												<td><?php echo $resultOrderDetail->records[$i]->orderId;?></td>
-												<td><?php echo $resultOrderDetail->records[$i]->total;?></td>
+												<td>
+												<form  action="order_view.php" method="post">	
+												<input type="hidden" name="orderId" value="<?php echo $resultOrderDetail->records[$i]->orderId;?>">
+												<button type="submit" class="btn btn-success"><?php echo $resultOrderDetail->records[$i]->orderId;?></button>
+				                                  </form>												</td>
+												<!-- <td>
+													<?php
+													// echo $resultOrderDetail->records[$i]->total;
+													?>
+													</td> -->
 												<td><?php echo $resultOrderDetail->records[$i]->status;?></td>
 												<td><?php echo $resultOrderDetail->records[$i]->deliveryAddress;?></td>
 												<td><?php echo $resultOrderDetail->records[$i]->verificationCode;?></td>
 												<td><?php echo $resultOrderDetail->records[$i]->createdOn;?></td>
-												<td><?php echo $resultOrderDetail->records[$i]->createdBy;?></td>
+												   <!-- <td>
+													<?php 
+													//echo $resultOrderDetail->records[$i]->createdBy;
+													?>
+													</td> -->
 												<td>
 												<?php	if($resultOrderDetail->records[$i]->status!="Order_Delivery_Successfully")
 													{?>
