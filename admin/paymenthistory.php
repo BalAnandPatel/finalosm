@@ -17,21 +17,38 @@ $resultPayment = json_decode($response);
 // print_r($resultPayment);
 
 
-$fromDate= isset($_GET["fromDate"])?$_GET["fromDate"]:"";
-$toDate= isset($_GET["toDate"])?$_GET["toDate"]:"";
-$url2 = $URL."seller/readSellerPayDate.php";
-$data2 = array("fromDate"=>$fromDate,"toDate"=>$toDate);
+$fromDate = isset($_GET["fromDate"]) ? $_GET["fromDate"] : "";
+$toDate = isset($_GET["toDate"]) ? $_GET["toDate"] : "";
+$url2 = $URL . "seller/readSellerPayDate.php";
+$data2 = array("fromDate" => $fromDate, "toDate" => $toDate);
 // print_r($data);
 $postdata2 = json_encode($data2);
 $client2 = curl_init($url2);
 curl_setopt($client2, CURLOPT_POSTFIELDS, $postdata2);
-curl_setopt($client2, CURLOPT_CONNECTTIMEOUT, 0); 
+curl_setopt($client2, CURLOPT_CONNECTTIMEOUT, 0);
 curl_setopt($client2, CURLOPT_TIMEOUT, 4); //timeout in seconds
-curl_setopt($client2,CURLOPT_RETURNTRANSFER,true);
+curl_setopt($client2, CURLOPT_RETURNTRANSFER, true);
 $response2 = curl_exec($client2);
 curl_close($client2);
 // print_r($response2);
 $result = (json_decode($response2));
+
+
+$fromDated = isset($_GET["fromDated"]) ? $_GET["fromDated"] : "";
+$toDated = isset($_GET["toDated"]) ? $_GET["toDated"] : "";
+$url2 = $URL . "deliveryBoy/readDeliveryPayDate.php";
+$data2 = array("fromDate" => $fromDated, "toDate" => $toDated);
+// print_r($data);
+$postdata2 = json_encode($data2);
+$client2 = curl_init($url2);
+curl_setopt($client2, CURLOPT_POSTFIELDS, $postdata2);
+curl_setopt($client2, CURLOPT_CONNECTTIMEOUT, 0);
+curl_setopt($client2, CURLOPT_TIMEOUT, 4); //timeout in seconds
+curl_setopt($client2, CURLOPT_RETURNTRANSFER, true);
+$response2 = curl_exec($client2);
+curl_close($client2);
+// print_r($response2);
+$result2 = (json_decode($response2));
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -123,128 +140,184 @@ $result = (json_decode($response2));
 													<?php
                                                     // print_r($result);
                                                     // $cnt = 0;
-                                                   
+
                                                     //for ($i = 0; $i < sizeof($resultPayment->records); $i++) { //print_r($resultPayment->records[$i]);
                                                     ?>	
 				
 													
-														<option value="<?php //echo $resultPayment->records[$i]->id; ?>"> <?php // echo $resultPayment->records[$i]->name; ?></option>
+														<option value="<?php //echo $resultPayment->records[$i]->id; 
+                                                                        ?>"> <?php // echo $resultPayment->records[$i]->name; 
+                                                                                ?></option>
 														
-													<?php // } ?>
+													<?php // } 
+                                                    ?>
 												
 
 
 										
 
 <!- Payment History Table 1 -->
-<div class="module">
-    <div class="module-head">
-        <h3>Payment History</h3>
-    </div>
-    <div class="module-body table">
-        <?php if (isset($resultPayment->records) && count($resultPayment->records) > 0) : ?>
-            <table cellpadding="0" cellspacing="0" border="0" class="datatable-1 table table-bordered table-striped display" width="100%">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>id</th>
-                        <th>Name</th>
-                        <th>Counter Name</th>
-                        <th>Phone</th>
-                        <th>Email</th>
-                        <th>Commision</th>
-                        <th>Total Payment</th>
-                        <th>Payable <small>Price-Discount</small></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                    $cnt = 0;
-                    foreach ($resultPayment->records as $record) {
-                    ?>
-                        <tr>
-                            <td><?php echo htmlentities($cnt); ?></td>
-                            <td><?php echo $record->sellerId; ?></td>
-                            <form action="paymentdetails.php" method="POST">
-                                <input type="hidden" name="id" value="<?php echo $record->sellerId ?>">
-                                <td><button type="submit"><?php echo $record->sellerName; ?></button></td>
-                            </form>
-                            <td><?php echo $record->counterName; ?></td>
-                            <td><?php echo $record->phoneNo; ?></td>
-                            <td><?php echo $record->email; ?></td>
-                            <td><?php echo $record->totalAdminCommission; ?></td>
-                            <td><?php echo $record->totalSubtotal; ?></td>
-                            <td><?php echo $record->payAble - $record->totalAdminCommission; ?></td>
-                        </tr>
-                    <?php
-                        $cnt++;
-                    }
-                    ?>
-                </tbody>
-            </table>
-        <?php else : ?>
-            <p>No records found for the selected date range.</p>
-        <?php endif; ?>
-    </div>
-</div>
+                        <div class="module">
+                            <div class="module-head">
+                                <h3>Payment History</h3>
+                            </div>
+                            <div class="module-body table">
+                                <?php if (isset($resultPayment->records) && count($resultPayment->records) > 0) : ?>
+                                    <table cellpadding="0" cellspacing="0" border="0" class="datatable-1 table table-bordered table-striped display" width="100%">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>id</th>
+                                                <th>Name</th>
+                                                <th>Counter Name</th>
+                                                <th>Phone</th>
+                                                <th>Email</th>
+                                                <th>Commision</th>
+                                                <th>Total Payment</th>
+                                                <th>Payable <small>Price-Discount</small></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                                            $cnt = 0;
+                                            foreach ($resultPayment->records as $record) {
+                                            ?>
+                                                <tr>
+                                                    <td><?php echo htmlentities($cnt); ?></td>
+                                                    <td><?php echo $record->sellerId; ?></td>
+                                                    <form action="paymentdetails.php" method="POST">
+                                                        <input type="hidden" name="id" value="<?php echo $record->sellerId ?>">
+                                                        <td><button type="submit"><?php echo $record->sellerName; ?></button></td>
+                                                    </form>
+                                                    <td><?php echo $record->counterName; ?></td>
+                                                    <td><?php echo $record->phoneNo; ?></td>
+                                                    <td><?php echo $record->email; ?></td>
+                                                    <td><?php echo $record->totalAdminCommission; ?></td>
+                                                    <td><?php echo $record->totalSubtotal; ?></td>
+                                                    <td><?php echo $record->payAble - $record->totalAdminCommission; ?></td>
+                                                </tr>
+                                            <?php
+                                                $cnt++;
+                                            }
+                                            ?>
+                                        </tbody>
+                                    </table>
+                                <?php else : ?>
+                                    <p>No records found for the selected date range.</p>
+                                <?php endif; ?>
+                            </div>
+                        </div>
 
-<!-- Payment History Table 2 -->
+                        <!-- Payment History Table 2 -->
 
-<div class="module">
-    <div class="module-head d-flex justify-content-between align-items-center">
-        <h3>Payment History</h3>
-        <form class="filter-form d-flex" method="GET" action="paymenthistory.php">
-            <input type="date" id="fromDate" name="fromDate" class="form-control" value="<?php echo $fromDate ?>" required>
-            <input type="date" name="toDate" id="toDate" class="form-control" value="<?php echo $toDate ?>" required>
-            <button type="submit" class="btn btn-primary">Filter</button>
-        </form>
-    </div>
-    <div class="module-body table">
-        <?php if (isset($result->records) && count($result->records) > 0) : ?>
-            <table cellpadding="0" cellspacing="0" border="0" class="datatable-1 table table-bordered table-striped display" width="100%">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>id</th>
-                        <th>Name</th>
-                        <th>Counter Name</th>
-                        <th>Phone</th>
-                        <th>Email</th>
-                        <th>Commision</th>
-                        <th>Total Payment</th>
-                        <th>Payable <small>Price-Discount</small></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                    $cnt = 0;
-                    foreach ($result->records as $record) {
-                    ?>
-                        <tr>
-                            <td><?php echo htmlentities($cnt); ?></td>
-                            <td><?php echo $record->sellerId; ?></td>
-                            <form action="paymentdetails.php" method="POST">
-                                <input type="hidden" name="id" value="<?php echo $record->sellerId ?>">
-                                <td><button type="submit"><?php echo $record->sellerName; ?></button></td>
-                            </form>
-                            <td><?php echo $record->counterName; ?></td>
-                            <td><?php echo $record->phoneNo; ?></td>
-                            <td><?php echo $record->email; ?></td>
-                            <td><?php echo $record->totalAdminCommission; ?></td>
-                            <td><?php echo $record->totalSubtotal; ?></td>
-                            <td><?php echo $record->payAble - $record->totalAdminCommission; ?></td>
-                        </tr>
-                    <?php
-                        $cnt++;
-                    }
-                    ?>
-                </tbody>
-            </table>
-        <?php else : ?>
-            <p>No records found for the selected date range.</p>
-        <?php endif; ?>
-    </div>
-</div>
+                        <div class="module">
+                            <div class="module-head d-flex justify-content-between align-items-center">
+                                <h3>Payment History</h3>
+                                <form class="filter-form d-flex" method="GET" action="paymenthistory.php">
+                                    <input type="date" id="fromDate" name="fromDate" class="form-control" value="<?php echo $fromDate ?>" required>
+                                    <input type="date" name="toDate" id="toDate" class="form-control" value="<?php echo $toDate ?>" required>
+                                    <button type="submit" class="btn btn-primary">Filter</button>
+                                </form>
+                            </div>
+                            <div class="module-body table">
+                                <?php if (isset($result->records) && count($result->records) > 0) : ?>
+                                    <table cellpadding="0" cellspacing="0" border="0" class="datatable-1 table table-bordered table-striped display" width="100%">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>id</th>
+                                                <th>Name</th>
+                                                <th>Counter Name</th>
+                                                <th>Phone</th>
+                                                <th>Email</th>
+                                                <th>Commision</th>
+                                                <th>Total Payment</th>
+                                                <th>Payable <small>Price-Discount</small></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                                            $cnt = 0;
+                                            foreach ($result->records as $record) {
+                                            ?>
+                                                <tr>
+                                                    <td><?php echo htmlentities($cnt); ?></td>
+                                                    <td><?php echo $record->sellerId; ?></td>
+                                                    <form action="paymentdetails.php" method="POST">
+                                                        <input type="hidden" name="id" value="<?php echo $record->sellerId ?>">
+                                                        <td><button type="submit"><?php echo $record->sellerName; ?></button></td>
+                                                    </form>
+                                                    <td><?php echo $record->counterName; ?></td>
+                                                    <td><?php echo $record->phoneNo; ?></td>
+                                                    <td><?php echo $record->email; ?></td>
+                                                    <td><?php echo $record->totalAdminCommission; ?></td>
+                                                    <td><?php echo $record->totalSubtotal; ?></td>
+                                                    <td><?php echo $record->payAble - $record->totalAdminCommission; ?></td>
+                                                </tr>
+                                            <?php
+                                                $cnt++;
+                                            }
+                                            ?>
+                                        </tbody>
+                                    </table>
+                                <?php else : ?>
+                                    <p>No records found for the selected date range.</p>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+
+
+                        <!-- Payment History Table 3 -->
+
+                        <div class="module">
+                            <div class="module-head d-flex justify-content-between align-items-center">
+                                <h3>Payment History</h3>
+                                <form class="filter-form d-flex" method="GET" action="paymenthistory.php">
+                                    <input type="date" id="fromDated" name="fromDated" class="form-control" value="<?php echo $fromDated ?>" required>
+                                    <input type="date" name="toDated" id="toDated" class="form-control" value="<?php echo $toDated ?>" required>
+                                    <button type="submit" class="btn btn-primary">Filter</button>
+                                </form>
+                            </div>
+                            <div class="module-body table">
+                                <?php if (isset($result2->records) && count($result2->records) > 0) : ?>
+                                    <table cellpadding="0" cellspacing="0" border="0" class="datatable-1 table table-bordered table-striped display" width="100%">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Delivery Id</th>
+                                                <th>Name</th>
+                                                <th>Delivered Items</th>
+                                                <th>Ammount</th>
+                                                <th>Mobile</th>
+                                                <th>Account</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                                            $cnt = 0;
+                                            foreach ($result2->records as $record) {
+                                            ?>
+                                                <tr>
+                                                    <td><?php echo htmlentities($cnt); ?></td>
+                                                    <td><?php echo $record->deliveryId; ?></td>
+                                                    <td><?php echo $record->name; ?></td>
+                                                    <td><?php echo $record->total; ?></td>
+                                                    <td><?php echo $record->total * $DELIVERYPRICE; ?></td>
+                                                    <td><?php echo $record->phoneNo; ?></td>
+                                                    <td><?php echo $record->accountNo; ?></td>
+                                                </tr>
+                                            <?php
+                                                $cnt++;
+                                            }
+                                            ?>
+                                        </tbody>
+                                    </table>
+                                <?php else : ?>
+                                    <p>No records found for the selected date range.</p>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+
 
 
 

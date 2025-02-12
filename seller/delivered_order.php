@@ -222,6 +222,10 @@ $resultOrderDetails = json_decode($readOrderDetailsResponse);
                 // print_r($result['records']);
                 for($i=0; $i<sizeof($resultOrderDetails->records);$i++)
                 { //print_r($result->records[$i]);
+
+					if($resultOrderDetails->records[$i]->status != "Order_Delivery_Successfully"){
+						continue;
+					}
                 ?>	
 												<tr>
 												<td><?php echo htmlentities($cnt); ?></td>

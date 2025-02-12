@@ -62,59 +62,6 @@ class Seller
         return $stmt;
     }
 
-    // public function readSellerPayDate($fromDate, $toDate) {
-    //     $query = "SELECT a.sellerName, a.counterName, a.id, a.password, a.pan, a.gst, b.city, b.pincode, a.createdOn, b.address, a.aadhar, image, phoneNo, regFee, depositAmount, email, a.status, 
-    //               SUM(o.total) AS sTotal, SUM(o.adminCommision) AS adminCommision, SUM(o.subTotal) AS sub, SUM(z.discount) AS discount, o.createdOn AS orderc, 
-    //               SUM(CASE WHEN DATE(o.createdOn) = CURDATE() THEN o.total ELSE 0 END) AS todaysTotal, 
-    //               SUM(CASE WHEN DATE(o.createdOn) = CURDATE() THEN z.discount ELSE 0 END) AS todaysDiscount, 
-    //               SUM(CASE WHEN DATE(o.createdOn) = CURDATE() THEN o.adminCommision ELSE 0 END) as todaysCommision 
-    //               FROM " . $this->seller . " AS a 
-    //               INNER JOIN " . $this->selleraddress . " AS b ON b.sellerId = a.id
-    //               JOIN " . $this->selleraddress . " AS c ON c.sellerId = a.id
-    //               JOIN " . $this->orderdetails . " AS o ON a.id = o.sellerId
-    //               JOIN " . $this->orderItem . " AS z ON o.orderId = z.orderId
-    //               WHERE o.createdOn BETWEEN :fromDate AND :toDate
-    //               GROUP BY o.sellerId";
-        
-    //     $stmt = $this->conn->prepare($query);
-        
-    //     // Bind the parameters
-    //     $stmt->bindParam(':fromDate', $fromDate);
-    //     $stmt->bindParam(':toDate', $toDate);
-        
-    //     $stmt->execute();
-    //     return $stmt;
-    // }
-
-    // *******************************
-    // public function readSellerPayDate($fromDate, $toDate) {
-    //     $query = "SELECT a.sellerName, a.counterName, a.id, a.password, a.pan, a.gst, b.city, b.pincode, a.createdOn, b.address, a.aadhar, image, phoneNo, regFee, depositAmount, email, a.status, 
-    //               SUM(o.total) AS sTotal,  -- Total revenue
-    //               SUM(o.adminCommision) AS adminCommision, 
-    //               SUM(o.subTotal) AS sub, 
-    //               SUM(z.discount) AS discount, 
-    //               o.createdOn AS orderc, 
-    //               SUM(CASE WHEN DATE(o.createdOn) BETWEEN :fromDate AND :toDate THEN o.total ELSE 0 END) AS rangeTotal,  -- Total revenue in the given date range
-    //               SUM(CASE WHEN DATE(o.createdOn) BETWEEN :fromDate AND :toDate THEN z.discount ELSE 0 END) AS rangeDiscount,  -- Discount in the given date range
-    //               SUM(CASE WHEN DATE(o.createdOn) BETWEEN :fromDate AND :toDate THEN o.adminCommision ELSE 0 END) AS rangeCommision,  -- Admin commission in the given date range
-    //               COUNT(z.id) AS totalSold,  -- Total items sold in the given date range
-    //               SUM(o.total) AS totalRevenue  -- Total revenue from all orders in the given date range
-    //               FROM " . $this->seller . " AS a 
-    //               INNER JOIN " . $this->selleraddress . " AS b ON b.sellerId = a.id
-    //               JOIN " . $this->orderdetails . " AS o ON a.id = o.sellerId
-    //               JOIN " . $this->orderItem . " AS z ON o.orderId = z.orderId
-    //               WHERE o.createdOn BETWEEN :fromDate AND :toDate
-    //               GROUP BY a.id";
-    
-    //     $stmt = $this->conn->prepare($query);
-        
-    //     // Bind the parameters
-    //     $stmt->bindParam(':fromDate', $fromDate);
-    //     $stmt->bindParam(':toDate', $toDate);
-        
-    //     $stmt->execute();
-    //     return $stmt;
-    // }
     public function readSellerPayDate($fromDate, $toDate){
         $query = "SELECT b.sellerName, b.counterName, b.email, b.phoneNo, productId, a.sellerId, quantity, SUM(subTotal) AS total_subtotal, SUM(discount * quantity) AS total_discount,
         SUM(subTotal - (subTotal * (discount * quantity) / 100)) AS total_after_discount, SUM(adminCommision) AS total_admin_commission,
