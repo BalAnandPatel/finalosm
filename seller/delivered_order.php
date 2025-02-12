@@ -1,6 +1,5 @@
 <?php
  include('include/header.php');
-
 include "../constant.php";
 $url = $URL . "category/readCategory.php";
 //$url="http://localhost/onlinesabjimandiapi/api/src/category/readCategory.php";
@@ -211,14 +210,14 @@ $resultOrderDetails = json_decode($readOrderDetailsResponse);
 												<th>Toal Commision</th>
 												<th>Created On</th>
 												<th>Created By</th>
-												<th>Action</th>
+												<!-- <th>Action</th> -->
 											</tr>
 										</thead>
 										<tbody>
 
 										<?php
                 // print_r($result);
-				$cnt=0;
+				$cnt=1;
                 // print_r($result['records']);
                 for($i=0; $i<sizeof($resultOrderDetails->records);$i++)
                 { //print_r($result->records[$i]);
@@ -235,8 +234,8 @@ $resultOrderDetails = json_decode($readOrderDetailsResponse);
 												<td><?php echo $resultOrderDetails->records[$i]->totalCommision;?></td>
 												<td><?php echo $resultOrderDetails->records[$i]->createdOn;?></td>
 												<td><?php echo $resultOrderDetails->records[$i]->createdBy;?></td>
-												<td>
-												<!-- <form class="form-horizontal row-fluid"  action="action/orderAction_post.php" name="Category" method="post" enctype="multipart/form-data">
+												<!-- <td>
+												 <form class="form-horizontal row-fluid"  action="action/orderAction_post.php" name="Category" method="post" enctype="multipart/form-data">
 															<input type="text" name="orderId" value="<?php echo $resultOrderDetails->records[$i]->orderId ?>">
 															<input type="hidden" name="status" value="1">
 															<button type="submit" >Accept</button>
@@ -246,9 +245,9 @@ $resultOrderDetails = json_decode($readOrderDetailsResponse);
 															<input type="hidden" name="orderId" value="<?php echo $resultOrderDetails->records[$i]->orderId ?>">
 															<input type="hidden" name="status" value="2">
 															<button type="submit">Reject</button>
-														</form> -->
+														</form> 
 												</td> 
-								
+								 -->
 												</tr>
 											<?php $cnt = $cnt + 1;
 											} ?>
