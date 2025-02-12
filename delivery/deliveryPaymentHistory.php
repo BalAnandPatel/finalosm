@@ -1,10 +1,11 @@
 <?php
 ob_start();
+include('include/header.php');
 include "../constant.php";
-$url = $URL . "category/readCategory.php";
-//$url="http://localhost/onlinesabjimandiapi/api/src/category/readCategory.php";
-$data = array();
-// //print_r($data);
+$url = $URL . "deliveryBoy/readDeliveryPayId.php";
+$deliveryId= $_SESSION['id'];
+$data = array("deliveryId"=>$deliveryId);
+// print_r($data);
 $postdata = json_encode($data);
 $client = curl_init();
 curl_setopt( $client, CURLOPT_URL,$url);
@@ -13,25 +14,26 @@ curl_setopt($client, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($client, CURLOPT_POST, 5);
 curl_setopt($client, CURLOPT_POSTFIELDS, $postdata);
 $response = curl_exec($client);
-//print_r($response);
+// print_r($response);
 $result = json_decode($response);
 //print_r($result);
 
-$url = $URL . "subcotegory/readsubcatogoryAll.php";
-//$url="http://localhost/onlinesabjimandiapi/api/src/category/readCategory.php";
-$data = array();
-// //print_r($data);
-$postdata = json_encode($data);
-$client = curl_init();
-curl_setopt( $client, CURLOPT_URL,$url);
-//curl_setopt( $client, CURLOPT_HTTPHEADER,  $request_headers);
-curl_setopt($client, CURLOPT_RETURNTRANSFER, 1);
-curl_setopt($client, CURLOPT_POST, 5);
-curl_setopt($client, CURLOPT_POSTFIELDS, $postdata);
-$response = curl_exec($client);
-//print_r($response);
-$resultsub = json_decode($response);
-//print_r($result);
+$fromDate = isset($_GET["fromDate"]) ? $_GET["fromDate"] : "";
+$toDate = isset($_GET["toDate"]) ? $_GET["toDate"] : "";
+$deliveryId = $_SESSION['id'];
+$url2 = $URL . "deliveryBoy/readDeliveryPayDateId.php";
+$data2 = array("fromDate" => $fromDate, "toDate" => $toDate, "deliveryId"=>$deliveryId);
+// print_r($data2);
+$postdata2 = json_encode($data2);
+$client2 = curl_init($url2);
+curl_setopt($client2, CURLOPT_POSTFIELDS, $postdata2);
+curl_setopt($client2, CURLOPT_CONNECTTIMEOUT, 0);
+curl_setopt($client2, CURLOPT_TIMEOUT, 4); //timeout in seconds
+curl_setopt($client2, CURLOPT_RETURNTRANSFER, true);
+$response2 = curl_exec($client2);
+curl_close($client2);
+// print_r($response2);
+$result2 = (json_decode($response2));
 ?>
 	<!DOCTYPE html>
 	<html lang="en">
@@ -89,7 +91,6 @@ $resultsub = json_decode($response);
 	</head>
 
 	<body>
-		<?php include('include/header.php'); ?>
 
 		<div class="wrapper">
 			<div class="container">
@@ -108,12 +109,8 @@ $resultsub = json_decode($response);
 											<tr>
 												<th>#</th>
 												<th>Name</th>
+												<th>Delivered Items</th>
 												<th>Ammount</th>
-												<th>Transaction Id</th>
-												<th>Order Id</th>
-												<th>Method</th>
-												<th>Status</th>
-												<th>Time</th>
 											</tr>
 										</thead>
 										<tbody>
@@ -122,19 +119,15 @@ $resultsub = json_decode($response);
                 // print_r($result);
 				$cnt=0;
                 // print_r($result['records']);
-                for($i=0; $i<sizeof($resultsub->records);$i++)
+                for($i=0; $i<sizeof($result->records);$i++)
                 { //print_r($result->records[$i]);
                 ?>	
 												<tr>
 												<td><?php echo htmlentities($cnt); ?></td>
-												<td><?php echo $resultsub->records[$i]->name;?></td>
-												<td><?php echo $resultsub->records[$i]->ammount;?></td>
-												<td><?php echo $resultsub->records[$i]->transId;?></td>
-												<td><?php echo $resultsub->records[$i]->orderId;?></td>
-												<td><?php echo $resultsub->records[$i]->method;?></td>
-												<td><?php echo $resultsub->records[$i]->status;?></td>
-												<td><?php echo $resultsub->records[$i]->time;?></td>
-								
+												<td><?php echo $result->records[$i]->name;?></td>
+												<td><?php echo $result->records[$i]->total;?></td>
+												<td><?php echo $result->records[$i]->total * $DELIVERYPRICE;?></td>
+
 												</tr>
 											<?php $cnt = $cnt + 1;
 											} ?>
@@ -143,6 +136,48 @@ $resultsub = json_decode($response);
 								</div>
 							</div>
 
+							<div class="module">
+							<div class="module-head d-flex justify-content-between align-items-center">
+								<h3>Payment History</h3>
+								<form class="filter-form d-flex" method="GET" action="deliveryPaymentHistory.php">
+									<input type="date" id="fromDate" name="fromDate" class="form-control" value="<?php echo $fromDate ?>" required>
+									<input type="date" name="toDate" id="toDate" class="form-control" value="<?php echo $toDate ?>" required>
+									<button type="submit" class="btn btn-primary">Filter</button>
+								</form>
+							</div>
+							<div class="module-body table">
+								<?php if (isset($result2->records) && count($result2->records) > 0) : ?>
+									<table cellpadding="0" cellspacing="0" border="0" class="datatable-1 table table-bordered table-striped display" width="100%">
+										<thead>
+											<tr>
+												<th>#</th>
+												<th>Name</th>
+												<th>Delivered Items</th>
+												<th>Ammount</th>
+											</tr>
+										</thead>
+										<tbody>
+											<?php
+											$cnt = 0;
+											foreach ($result2->records as $record) {
+											?>
+												<tr>
+													<td><?php echo htmlentities($cnt); ?></td>
+													<td><?php echo $record->name; ?></td>
+													<td><?php echo $record->total; ?></td>
+													<td><?php echo $record->total * $DELIVERYPRICE; ?></td>
+												</tr>
+											<?php
+												$cnt++;
+											}
+											?>
+										</tbody>
+									</table>
+								<?php else : ?>
+									<p>No records found for the selected date range.</p>
+								<?php endif; ?>
+							</div>
+						</div>
 
 
 						</div><!--/.content-->
