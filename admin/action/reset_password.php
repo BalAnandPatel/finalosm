@@ -17,12 +17,12 @@ if ($result->records[0]->message == "Successfull") {
     $headers = "From: admin@onlinesabjimandi.com"; // Sender's email address
 
     if (mail($to, $subject, $message, $headers)) {
-        header('Location:../../accountphp?msg=Email sent successfully');
+        header('Location:forgot-password.php?msg=Email sent successfully');
     } else {
-        header('Location:../../accountphp?msg=Failed to send email');
+        header('Location:forgot-password.php?msg=Failed to send email');
     }
 } else {
-    header('Location:../../forgot-password.php?msg=Username  is incorrect');
+    header('Location:forgot-password.php?msg=Username  is incorrect');
 }
 
 
